@@ -81,7 +81,7 @@ class SQL_LOADER:
                 INSERT INTO {name} ({", ".join(header)})
                 VALUES ({", ".join(["%s" for _ in header])})
             """, row)
-        self.load_sql_details()
+        self.sql_schema, self.sql_data = self.load_sql_details()
         self.close_conn()
 
     def Check_bland_sqlDb(self, question ):
