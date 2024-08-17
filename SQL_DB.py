@@ -17,7 +17,10 @@ class SQL_LOADER:
         )
         self.cursor = self.connection.cursor()
         self.table_name = table_name
-        self.sql_schema = self.load_sql_details()
+        try:
+            self.sql_schema, self.sql_data = self.load_sql_details()
+        except:
+            print("Table Not found.. Please load data first.")
 
     def load_sql_details(self):
         self.cursor.execute(f"SELECT * FROM {self.table_name}")
@@ -78,7 +81,7 @@ class SQL_LOADER:
                 INSERT INTO {name} ({", ".join(header)})
                 VALUES ({", ".join(["%s" for _ in header])})
             """, row)
-
+        self.load_sql_details()
         self.close_conn()
 
     def Check_bland_sqlDb(self, question ):
