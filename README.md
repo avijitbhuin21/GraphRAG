@@ -78,11 +78,3 @@ neo.insert_data_neo4j(sql.sql_data, create_query(sql.sql_schema), params)
 
 4. **Run the Notebook**
    - Open and run the `main.ipynb` notebook. Modify the query as needed within the notebook.
-
-
----
-
-Happy coding!
-```
-
-This `README.md` file provides clear and concise instructions on how to set up and run the project. It also includes standard sections like License, Contributing, and Contact for completeness.
